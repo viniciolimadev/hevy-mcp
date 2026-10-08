@@ -37,6 +37,21 @@ claude mcp add hevy -e HEVY_API_KEY=sua-chave -- node /caminho/integra-o-hevy-ai
 }
 ```
 
+### Codex (OpenAI)
+
+```bash
+codex mcp add hevy --env HEVY_API_KEY=sua-chave -- node /caminho/integra-o-hevy-ai/dist/index.js
+```
+
+Ou em `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.hevy]
+command = "node"
+args = ["/caminho/integra-o-hevy-ai/dist/index.js"]
+env = { HEVY_API_KEY = "sua-chave" }
+```
+
 ## Ferramentas
 
 | Grupo | Leitura | Escrita |
