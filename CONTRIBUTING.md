@@ -34,3 +34,13 @@ CI fails if `docs/tools.md` is out of date.
 - Keep each PR focused on one change.
 - Use clear, imperative commit messages, e.g. `Add get_routine_folder tool`.
 - Never commit API keys or `.env` files.
+
+## Releasing (maintainers)
+
+1. Bump `version` in `package.json` and in `src/index.ts` (`new McpServer({ version })`).
+2. Move the **Unreleased** entries in `CHANGELOG.md` to a new `## [x.y.z] - YYYY-MM-DD` section.
+3. Merge to `main`, then tag and push:
+   ```bash
+   git tag vX.Y.Z && git push origin vX.Y.Z
+   ```
+4. The **Release** workflow checks the tag against `package.json` and publishes a GitHub release using the CHANGELOG section as release notes.
