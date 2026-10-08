@@ -11,7 +11,7 @@ Claude (Code/Desktop) ──MCP stdio──▶ hevy-mcp ──HTTPS (header api-
 ## Requisitos
 
 - Hevy **Pro** + API key: https://hevy.com/settings?developer
-- Node.js ≥ 18
+- Node.js ≥ 20
 
 ## Instalação
 
@@ -84,6 +84,18 @@ env = { HEVY_API_KEY = "sua-chave" }
 |---|---|
 | `HEVY_API_KEY` | obrigatória |
 | `HEVY_BASE_URL` | `https://api.hevyapp.com` |
+
+## Documentação
+
+Documentação técnica completa (em inglês):
+
+| Documento | Conteúdo |
+|---|---|
+| [docs/tools.md](docs/tools.md) | Referência de todas as ferramentas e parâmetros |
+| [docs/architecture.md](docs/architecture.md) | Arquitetura e decisões de design |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Como contribuir |
+| [SECURITY.md](SECURITY.md) | Segurança da API key |
+| [CHANGELOG.md](CHANGELOG.md) | Histórico de versões |
 
 ## Aviso
 
