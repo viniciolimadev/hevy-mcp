@@ -1,26 +1,30 @@
 # hevy-mcp
 
-Servidor [MCP](https://modelcontextprotocol.io) que conecta o Claude à [API pública do Hevy](https://api.hevyapp.com/docs/).
+🇺🇸 English · 🇧🇷 [Português](README.pt-BR.md)
+
+An [MCP](https://modelcontextprotocol.io) server that connects AI assistants (Claude, Codex) to the [Hevy Public API](https://api.hevyapp.com/docs/).
 
 ```
-Claude (Code/Desktop) ──MCP stdio──▶ hevy-mcp ──HTTPS (header api-key)──▶ api.hevyapp.com/v1
+Claude / Codex ──MCP stdio──▶ hevy-mcp ──HTTPS (api-key header)──▶ api.hevyapp.com/v1
 ```
 
-## Requisitos
+## Requirements
 
 - Hevy **Pro** + API key: https://hevy.com/settings?developer
 - Node.js ≥ 18
 
-## Instalação
+## Installation
 
 ```bash
+git clone https://github.com/viniciolimadev/integracao-hevy-ai
+cd integracao-hevy-ai
 npm install && npm run build
 ```
 
 ### Claude Code
 
 ```bash
-claude mcp add hevy -e HEVY_API_KEY=sua-chave -- node /caminho/integra-o-hevy-ai/dist/index.js
+claude mcp add hevy -e HEVY_API_KEY=your-key -- node /path/to/integracao-hevy-ai/dist/index.js
 ```
 
 ### Claude Desktop (`claude_desktop_config.json`)
@@ -30,8 +34,8 @@ claude mcp add hevy -e HEVY_API_KEY=sua-chave -- node /caminho/integra-o-hevy-ai
   "mcpServers": {
     "hevy": {
       "command": "node",
-      "args": ["/caminho/integra-o-hevy-ai/dist/index.js"],
-      "env": { "HEVY_API_KEY": "sua-chave" }
+      "args": ["/path/to/integracao-hevy-ai/dist/index.js"],
+      "env": { "HEVY_API_KEY": "your-key" }
     }
   }
 }
@@ -40,47 +44,51 @@ claude mcp add hevy -e HEVY_API_KEY=sua-chave -- node /caminho/integra-o-hevy-ai
 ### Codex (OpenAI)
 
 ```bash
-codex mcp add hevy --env HEVY_API_KEY=sua-chave -- node /caminho/integra-o-hevy-ai/dist/index.js
+codex mcp add hevy --env HEVY_API_KEY=your-key -- node /path/to/integracao-hevy-ai/dist/index.js
 ```
 
-Ou em `~/.codex/config.toml`:
+Or in `~/.codex/config.toml`:
 
 ```toml
 [mcp_servers.hevy]
 command = "node"
-args = ["/caminho/integra-o-hevy-ai/dist/index.js"]
-env = { HEVY_API_KEY = "sua-chave" }
+args = ["/path/to/integracao-hevy-ai/dist/index.js"]
+env = { HEVY_API_KEY = "your-key" }
 ```
 
-## Ferramentas
+## Tools
 
-| Grupo | Leitura | Escrita |
+| Group | Read | Write |
 |---|---|---|
-| Usuário | `get_user_info` | — |
-| Treinos | `list_workouts`, `get_workout`, `get_workout_count`, `get_workout_events` | `create_workout`, `update_workout` |
-| Rotinas | `list_routines`, `get_routine` | `create_routine`, `update_routine` |
-| Pastas | `list_routine_folders`, `get_routine_folder` | `create_routine_folder` |
-| Exercícios | `list_exercise_templates` (com `search`), `get_exercise_template`, `get_exercise_history` | `create_exercise_template` |
-| Medidas | `list_body_measurements`, `get_body_measurement` | `create_body_measurement`, `update_body_measurement` |
+| User | `get_user_info` | — |
+| Workouts | `list_workouts`, `get_workout`, `get_workout_count`, `get_workout_events` | `create_workout`, `update_workout` |
+| Routines | `list_routines`, `get_routine` | `create_routine`, `update_routine` |
+| Routine folders | `list_routine_folders`, `get_routine_folder` | `create_routine_folder` |
+| Exercises | `list_exercise_templates` (with `search`), `get_exercise_template`, `get_exercise_history` | `create_exercise_template` |
+| Body measurements | `list_body_measurements`, `get_body_measurement` | `create_body_measurement`, `update_body_measurement` |
 
-- Paginação automática via `max_items`.
-- Retry com backoff em 429/5xx.
-- `update_body_measurement` sobrescreve tudo: campos omitidos viram `null`.
+- Automatic pagination via `max_items`.
+- Retry with exponential backoff on 429/5xx.
+- `update_body_measurement` overwrites every field: omitted fields become `null`.
 
-## Exemplos de prompts
+## Example prompts
 
-- "Resuma meus treinos das últimas 4 semanas: volume por grupo muscular e frequência."
-- "Como evoluiu minha carga no supino nos últimos 3 meses?"
-- "Crie uma rotina Push/Pull/Legs na pasta 'Hipertrofia'."
-- "Registre meu peso de hoje: 82,4 kg."
+- "Summarize my last 4 weeks of training: volume per muscle group and frequency."
+- "How has my bench press load progressed over the last 3 months?"
+- "Create a Push/Pull/Legs routine in a 'Hypertrophy' folder."
+- "Log today's body weight: 82.4 kg."
 
-## Variáveis
+## Environment variables
 
-| Var | Padrão |
+| Variable | Default |
 |---|---|
-| `HEVY_API_KEY` | obrigatória |
+| `HEVY_API_KEY` | required |
 | `HEVY_BASE_URL` | `https://api.hevyapp.com` |
 
-## Licença
+## Disclaimer
+
+Unofficial community project, not affiliated with Hevy. The Hevy Public API is in an early stage and may change.
+
+## License
 
 [MIT](LICENSE)
