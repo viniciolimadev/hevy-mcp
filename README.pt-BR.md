@@ -16,15 +16,15 @@ Claude (Code/Desktop) ──MCP stdio──▶ hevy-mcp ──HTTPS (header api-
 ## Instalação
 
 ```bash
-git clone https://github.com/viniciolimadev/integracao-hevy-ai
-cd integracao-hevy-ai
+git clone https://github.com/viniciolimadev/hevy-mcp
+cd hevy-mcp
 npm install && npm run build
 ```
 
 ### Claude Code
 
 ```bash
-claude mcp add hevy -e HEVY_API_KEY=sua-chave -- node /caminho/integracao-hevy-ai/dist/index.js
+claude mcp add hevy -e HEVY_API_KEY=sua-chave -- node /caminho/hevy-mcp/dist/index.js
 ```
 
 ### Claude Desktop (`claude_desktop_config.json`)
@@ -34,7 +34,7 @@ claude mcp add hevy -e HEVY_API_KEY=sua-chave -- node /caminho/integracao-hevy-a
   "mcpServers": {
     "hevy": {
       "command": "node",
-      "args": ["/caminho/integracao-hevy-ai/dist/index.js"],
+      "args": ["/caminho/hevy-mcp/dist/index.js"],
       "env": { "HEVY_API_KEY": "sua-chave" }
     }
   }
@@ -44,7 +44,7 @@ claude mcp add hevy -e HEVY_API_KEY=sua-chave -- node /caminho/integracao-hevy-a
 ### Codex (OpenAI)
 
 ```bash
-codex mcp add hevy --env HEVY_API_KEY=sua-chave -- node /caminho/integracao-hevy-ai/dist/index.js
+codex mcp add hevy --env HEVY_API_KEY=sua-chave -- node /caminho/hevy-mcp/dist/index.js
 ```
 
 Ou em `~/.codex/config.toml`:
@@ -52,7 +52,7 @@ Ou em `~/.codex/config.toml`:
 ```toml
 [mcp_servers.hevy]
 command = "node"
-args = ["/caminho/integracao-hevy-ai/dist/index.js"]
+args = ["/caminho/hevy-mcp/dist/index.js"]
 env = { HEVY_API_KEY = "sua-chave" }
 ```
 
