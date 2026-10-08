@@ -80,3 +80,7 @@ env = { HEVY_API_KEY = "sua-chave" }
 |---|---|
 | `HEVY_API_KEY` | obrigatória |
 | `HEVY_BASE_URL` | `https://api.hevyapp.com` |
+
+## Licença
+
+[MIT](LICENSE)
