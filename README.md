@@ -4,7 +4,7 @@
 
 **Connect Claude, Codex and other AI assistants to your [Hevy](https://www.hevyapp.com) training data.**
 
-[![CI](https://github.com/viniciolimadev/integracao-hevy-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/viniciolimadev/integracao-hevy-ai/actions/workflows/ci.yml)
+[![CI](https://github.com/viniciolimadev/hevy-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/viniciolimadev/hevy-mcp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Node.js](https://img.shields.io/badge/node-%E2%89%A520-339933?logo=node.js&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP-server-8A2BE2)
@@ -56,8 +56,8 @@ flowchart LR
 ## Quick start
 
 ```bash
-git clone https://github.com/viniciolimadev/integracao-hevy-ai
-cd integracao-hevy-ai
+git clone https://github.com/viniciolimadev/hevy-mcp
+cd hevy-mcp
 npm install          # also builds to dist/
 ```
 
@@ -67,13 +67,13 @@ Then register the server with your AI client (see below) and ask:
 
 ## Client setup
 
-Replace `/path/to/integracao-hevy-ai` with the absolute path of your clone, and `your-key` with your Hevy API key.
+Replace `/path/to/hevy-mcp` with the absolute path of your clone, and `your-key` with your Hevy API key.
 
 <details open>
 <summary><b>Claude Code</b></summary>
 
 ```bash
-claude mcp add hevy -e HEVY_API_KEY=your-key -- node /path/to/integracao-hevy-ai/dist/index.js
+claude mcp add hevy -e HEVY_API_KEY=your-key -- node /path/to/hevy-mcp/dist/index.js
 ```
 </details>
 
@@ -87,7 +87,7 @@ Edit `claude_desktop_config.json` (Settings → Developer → Edit Config):
   "mcpServers": {
     "hevy": {
       "command": "node",
-      "args": ["/path/to/integracao-hevy-ai/dist/index.js"],
+      "args": ["/path/to/hevy-mcp/dist/index.js"],
       "env": { "HEVY_API_KEY": "your-key" }
     }
   }
@@ -99,7 +99,7 @@ Edit `claude_desktop_config.json` (Settings → Developer → Edit Config):
 <summary><b>Codex (OpenAI)</b></summary>
 
 ```bash
-codex mcp add hevy --env HEVY_API_KEY=your-key -- node /path/to/integracao-hevy-ai/dist/index.js
+codex mcp add hevy --env HEVY_API_KEY=your-key -- node /path/to/hevy-mcp/dist/index.js
 ```
 
 Or add it to `~/.codex/config.toml`:
@@ -107,7 +107,7 @@ Or add it to `~/.codex/config.toml`:
 ```toml
 [mcp_servers.hevy]
 command = "node"
-args = ["/path/to/integracao-hevy-ai/dist/index.js"]
+args = ["/path/to/hevy-mcp/dist/index.js"]
 env = { HEVY_API_KEY = "your-key" }
 ```
 </details>
@@ -115,7 +115,7 @@ env = { HEVY_API_KEY = "your-key" }
 <details>
 <summary><b>Other MCP clients</b></summary>
 
-Any client that supports stdio servers works. Use the command `node /path/to/integracao-hevy-ai/dist/index.js` and set the `HEVY_API_KEY` environment variable.
+Any client that supports stdio servers works. Use the command `node /path/to/hevy-mcp/dist/index.js` and set the `HEVY_API_KEY` environment variable.
 </details>
 
 ## Tools

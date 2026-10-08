@@ -5,8 +5,8 @@ Thanks for your interest in improving hevy-mcp!
 ## Development setup
 
 ```bash
-git clone https://github.com/viniciolimadev/integracao-hevy-ai
-cd integracao-hevy-ai
+git clone https://github.com/viniciolimadev/hevy-mcp
+cd hevy-mcp
 npm install
 npm run build
 ```

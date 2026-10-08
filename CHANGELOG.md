@@ -20,5 +20,5 @@ First public release.
 - CI on Node 20 and 22, plus a release workflow.
 - MIT license.
 
-[Unreleased]: https://github.com/viniciolimadev/integracao-hevy-ai/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/viniciolimadev/integracao-hevy-ai/releases/tag/v0.1.0
+[Unreleased]: https://github.com/viniciolimadev/hevy-mcp/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/viniciolimadev/hevy-mcp/releases/tag/v0.1.0

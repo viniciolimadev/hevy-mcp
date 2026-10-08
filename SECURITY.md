@@ -13,4 +13,4 @@ The `update_*` tools **overwrite** data. `update_body_measurement` sets omitted 
 
 ## Reporting a vulnerability
 
-Please **do not open a public issue**. Report it privately through [GitHub Security Advisories](https://github.com/viniciolimadev/integracao-hevy-ai/security/advisories/new). You can expect a response within 7 days.
+Please **do not open a public issue**. Report it privately through [GitHub Security Advisories](https://github.com/viniciolimadev/hevy-mcp/security/advisories/new). You can expect a response within 7 days.
