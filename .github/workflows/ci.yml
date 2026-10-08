@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Check tool reference is up to date
+        run: |
+          npm run docs:tools
+          git diff --exit-code docs/tools.md || (echo "::error::docs/tools.md is outdated. Run 'npm run docs:tools' and commit." && exit 1)
